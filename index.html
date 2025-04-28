@@ -28,6 +28,19 @@
       z-index: 2;
       padding-top: 50px;
     }
+    #soundBtn {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      z-index: 3;
+      background: rgba(0,0,0,0.5);
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      padding: 10px 20px;
+      font-size: 1em;
+      cursor: pointer;
+    }
     h1 {
       font-size: 3em;
       text-shadow: 2px 2px 10px #ff0, 0 0 20px #f00;
@@ -81,11 +94,8 @@
   Your browser does not support HTML5 video.
 </video>
 
-<!-- 🎵 Background Music -->
-<audio id="bgMusic" loop autoplay>
-  <source src="https://files.codingninja.in/codingninja_theme_music.mp3" type="audio/mpeg">
-  Your browser does not support the audio element.
-</audio>
+<!-- 🔊 Sound On Button -->
+<button id="soundBtn" onclick="enableSound()">🔊 Turn on Sound</button>
 
 <div class="content">
   <h1>🎮 Happy Birthday Thiripathi 🎮</h1>
@@ -127,10 +137,11 @@
     }
   }
 
-  // Start music on page load
-  window.onload = function() {
-    var music = document.getElementById('bgMusic');
-    music.play();
+  function enableSound() {
+    var video = document.getElementById('bgVideo');
+    video.muted = false;
+    video.play();
+    document.getElementById('soundBtn').style.display = 'none'; // hide button after clicking
   }
 </script>
 
